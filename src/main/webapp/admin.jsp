@@ -41,6 +41,7 @@
 	%>
 
 
+
 	<div class="box">
   <a href="../after-login/productDetails.html?id=${movie.id}" id="recently">
     <img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
