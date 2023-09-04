@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+  margin-top:300px;
+  margin-left:650px;
+
+}
+button {
+  --color: black;
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+button::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: white;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: .3s all;
+}
+
+button:hover::before {
+  top: -30px;
+  left: -30px;
+}
+</style>
+</head>
+<body>
+<div>
+  <button onclick = "redirect()">
+    Sign UP
+</button>
+</div>
+<script type="text/javascript">
+  function redirect(){
+	  window.location.href = "register.html";
+  }
+</script>
+</body>
+</html>
