@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Form</title>
 <style type="text/css">
 .card {
 	width: 350px;
@@ -68,20 +70,36 @@
 	color: #333;
 }
 </style>
+
 </head>
 <body>
 
 
-	<div class="card">
+
+<div class="card">
+
 		<div class="card-header">
 			<div class="text-header">Add Movie</div>
 		</div>
+		<%
+			String errorMessage = request.getParameter("error");
+			if (errorMessage != null) {
+			%>
+
+			<div class="alert alert-danger" role="alert">
+			<span style="color: red;"><%=errorMessage%></span>
+				
+				<!-- this will change based on invalid field entered -->
+			</div>
+			<%
+			}
+			%>
 		<div class="card-body">
 			<form action=AddMovieServlet method="post">
 
 				<div class="form-group">
 					<label for="username">Title:</label> <input required
-						class="form-control" value="Leo" name="title"
+						class="form-control" value="Salaar" name="title"
 						id="username" type="text">
 				</div>
 				<div class="form-group">
@@ -91,13 +109,12 @@
 				</div>
 				<div class="form-group">
 					<label for="password">Image Url:</label> <input required
-						class="form-control" name="imageUrl" id="password" type="text"
-						value="https://upload.wikimedia.org/wikipedia/en/7/75/Leo_%282023_Indian_film%29.jpg">
+						class="form-control" name="imageUrl" value="https://upload.wikimedia.org/wikipedia/en/a/a6/Salaar_Part_1_%E2%80%93_Ceasefire.jpg" id="password" type="text"
+					 >
 				</div>
 				<input type="submit" class="btn" value="submit">
 			</form>
 		</div>
 	</div>
-
 </body>
 </html>

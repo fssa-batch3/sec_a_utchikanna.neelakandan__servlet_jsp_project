@@ -18,7 +18,7 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit Form</title>
 <style type="text/css">
 .card {
   width: 350px;
@@ -92,12 +92,23 @@
   <div class="card-header">
     <div class="text-header">Add Movie</div>
   </div>
+  <%
+			String errorMessage = request.getParameter("error");
+			if (errorMessage != null) {
+			%>
+
+			<div class="alert alert-danger" role="alert">
+			<span style="color: red;"><%=errorMessage%></span>
+				
+				<!-- this will change based on invalid field entered -->
+			</div>
+			<%
+			}
+			%>
   <div class="card-body">
     <form action=UpdateMovieServlet method="post">
      <div class="form-group">
-     <%
     
-     %>
         <label for="username">Id:</label>
         
         <input required="" class="form-control" value = "${toEditMovie.getMovieId()}" name="Id" id="username" type="text">

@@ -86,21 +86,25 @@ input:invalid {
   transition: 1.5s;
 }
 
-.btn6 {
-  width: 35%;
-  background: black;
-  color: #fff;
-  border: none;
-  margin-top: 100px;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 18px;
-  margin-left: 90px;
-  opacity: 1;
-  transition: 1.5s;
+
+.with {
+  margin-top: 40px;
+  margin-left: 8px;
+  font-size: 15px;
+  color: #666;
 }
-.btn6:hover {
-  background-color: #666;
-  transition: 1.5s;
+.with1 {
+  margin-top: 20px;
+  margin-left: 8px;
+  font-size: 15px;
+  color: #666;
+}
+.log-user {
+  padding-left: 5px;
+}
+.log-user:hover {
+  text-decoration: underline;
+}
+.login-with {
+  display: flex;
 }

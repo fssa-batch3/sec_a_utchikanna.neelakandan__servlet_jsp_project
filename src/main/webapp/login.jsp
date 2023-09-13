@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>Log In</title>
 <link rel="stylesheet" href="form.css" />
 
 
@@ -43,7 +43,11 @@
 			<button type="submit" class="btn5">Log in</button>
 			
 		</form>
-		<a type="submit" href="register.html" class="btn6">Register</a>
+	<br /><br />
+      <h2 class="with1">
+        Don't have an account?<a class="log-user" href="register.jsp"
+          >Sign up</a>
+      </h2>
 	</div>
 </body>
 
