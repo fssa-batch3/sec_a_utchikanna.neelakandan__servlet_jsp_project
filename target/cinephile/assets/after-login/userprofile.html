@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="../assets/images/Cinephile.png"
+  />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../after-login/assets/css/userprofile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+
+  <body>
+    <div class="wholeprofilecontainer">
+     
+      <div class="userdetails">
+        <h1 class="profileh1">Personal Details</h1>
+        <form id="form">
+          <div class="flex_form">
+          <div class="user_details2">
+              <label for="name">First Name</label><br />
+              <input
+                autocomplete="off"
+                required="true"
+                pattern="[A-Za-z]{1,32}"
+                type="text"
+                id="name"
+                placeholder=" enter your name"
+              /><br />
+            
+              <label for="surname">Last name</label><br />
+              <input
+                autocomplete="off"
+                required="true"
+                pattern="[A-Za-z]{1,32}"
+                type="text"
+                class="surname"
+                id="surname"
+                placeholder=" enter your last name"
+              /><br />
+            
+          <label for="emailid">Email ID</label><br />
+          <input
+            autocomplete="off"
+            disabled
+            type="email"
+            class="emailid"
+            id="emailid"
+            placeholder=" enter your Email ID"
+          /><br />
+          <label for="mobilenumber">Mobile Number</label><br />
+          <input
+             autocomplete="off"
+             required="true"
+            type="tel"
+            class="mobilenumber"
+            id="mobilenumber"
+            placeholder=" enter your mobilenumber"
+          /><br />
+          <label for="emailid">Enter your Username</label><br />
+          <input
+            autocomplete="off"
+            required="true"
+            type="text"
+            class="emailid"
+            id="user_name"
+            
+          /><br />
+        </div>
+      
+          <div class="user_details1">
+          <label for="addressline1">Date of Birth</label><br />
+          <input
+            autocomplete="off"
+            required="true"
+            type="date"
+            class="dateOfBirth"
+            id="dob"
+          /><br />
+          <label for="addressline1">Gender</label><br />
+          <select autocomplete="off"
+             required="true" id="gender" name="gender">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="non-binary">Non-Binary</option>
+            <option value="other">Other</option>
+            <option value="Prefer not to answer">Perfer not to Answer</option>
+            </select>
+      <br />		
+      <label for="Country">Country</label><br />
+      <select name="" id="countries">
+				Select Country
+			</select>
+            <br>
+            <label for="State">State</label><br />
+			<select name="" id="state">
+				Select State
+			</select>
+            <br>
+
+              <label for="emailid">Enter your image URL</label><br />
+              <input
+                autocomplete="off"
+                required="true"
+                type="text"
+                class="emailid"
+                id="img_url"
+            
+              /><br />
+           
+          </div>  
+        </div>
+            <button type="submit"  class="btn6">Submit</button>
+            
+          </form>
+          <a href="../after-login/user.html">
+            <button  class="submit" >Back</button>
+          </a>
+     
+      
+    <script>
+
+const datePicker = document.querySelector(".dateOfBirth");
+const minDate = moment().subtract(100, "year").format("YYYY-MM-DD");
+const maxDate = moment().subtract(6, "year").format("YYYY-MM-DD");
+
+datePicker.setAttribute("min", minDate);
+datePicker.setAttribute("max", maxDate);
+      const user_email = JSON.parse(window.localStorage.getItem("details"))
+     
+      const user_details = JSON.parse(window.localStorage.getItem("user"))
+      let get_obj = user_details.find(function(user_obj){
+        let check_email = user_obj["email"]
+        if(user_email===check_email){   
+          return true ;
+        }
+      });
+      console.log(get_obj)
+
+      const fname = document.getElementById("name");
+      const lname = document.getElementById("surname");
+      const mail = document.getElementById("emailid");
+      const phone = document.getElementById("mobilenumber");
+     
+
+      fname.value =  get_obj["fname"] ;
+      lname.value =  get_obj["lname"] ;
+      mail.value  =  user_email ;
+      phone.value =  get_obj["phone_no"] ;
+     
+     
+      const countryArr = document.getElementById("countries");
+const stateArr = document.getElementById("state");
+
+const authToken = getToken()
+console.log(authToken);
+async function getData(endpoint) {
+  const token = await authToken
+	const response = await fetch(`https://www.universal-tutorial.com/api/${endpoint}`, {
+		method: "GET",
+		headers: {
+			"Authorization": `Bearer ${token.auth_token}`
+				,
+			"Accept": "application/json",
+		},
+	});
+	const data = await response.json();
+	return data;
+}
+async function getToken() {
+	const response = await fetch(`https://www.universal-tutorial.com/api/getaccesstoken`, {
+		method: "GET",
+		headers: {
+			"api-token":
+				"5G63Z8Pifh6ZHt4N2togj-GElSMBCwt9hK4pIMIM1j3y0HsbZTpD_V-89QK1uxEStNQ",
+			"Accept": "application/json",
+      "user-email": "utchikanna3108@gmail.com"
+		},
+	});
+	const data = await response.json();
+	return data;
+}
+async function showData() {
+	const dataArr = await getData("countries");
+	const stateList = await getData(`states/${dataArr[0]["country_name"]}`);
+	let option;
+	
+	for (const element of dataArr) {
+		option = document.createElement("option");
+
+		option.value = element["country_name"];
+		option.text = element["country_name"];
+		countryArr.appendChild(option);
+	}
+	for (const element of stateList) {
+		option = document.createElement("option");
+		option.value = element["state_name"];
+		option.text = element["state_name"];
+		stateArr.appendChild(option);
+	}
+	
+}
+showData();
+countryArr.addEventListener("change", async () => {
+	const dataArr = await getData(`states/${countryArr.value}`);
+	stateArr.innerHTML = "";
+
+	for (const element of dataArr) {
+		var option = document.createElement("option");
+		option.value = element["state_name"];
+		option.text = element["state_name"];
+		stateArr.appendChild(option);
+	}
+});
+stateArr.addEventListener("change", async () => {
+	const dataArr = await getData(`cities/${stateArr.value}`);
+	districtArr.innerHTML = "";
+
+	for (const element of dataArr) {
+		var option = document.createElement("option");
+		option.value = element["city_name"];
+		option.text = element["city_name"];
+		districtArr.appendChild(option);
+	}
+});
+
+
+  
+      let form = document.getElementById("form");
+      form.addEventListener("submit" , function(event){
+      event.preventDefault()
+      let fname = document.getElementById("name").value;
+      let lname = document.getElementById("surname").value;
+      let email = document.getElementById("emailid").value;
+      let phone_no = document.getElementById("mobilenumber").value;
+      let dob = document.getElementById("dob").value;
+      let state = document.getElementById("state").value;  
+      let country = document.getElementById("countries").value; 
+      let gender  = document.getElementById("gender").value; 
+      let image  = document.getElementById("img_url").value;
+      let userName  = document.getElementById("user_name").value;
+      console.log(country);
+      let new_data = {
+        fname,
+        lname,
+        email,
+        phone_no, 
+        dob,
+        state,
+        country,
+        gender,
+        image,
+        userName,
+      };
+      // if( mail.value != user_email ){
+      //   alert("You can't change the email-id")
+      //   return 
+      // }
+    
+    let updates = Object.assign(get_obj,new_data);
+    console.log(updates); 
+
+    let index = user_details.indexOf(get_obj) 
+     console.log(index);
+
+    user_details[index] = updates; 
+
+    localStorage.setItem("user", JSON.stringify(user_details))
+
+    alert("You have successfully updated your account details!");
+
+    
+
+    });
+
+    // const user_email = JSON.parse(window.localStorage.getItem("details"))
+    let check = true;
+     const present_details = JSON.parse(window.localStorage.getItem("user"))
+      let get_present = user_details.find(function(user_obj){
+        let check_email = user_obj["email"]
+        if(user_email===check_email){ 
+              
+      let fname1 = document.getElementById("name");
+      let lname1 = document.getElementById("surname");
+      let mail1 = document.getElementById("emailid");
+      let phone1 = document.getElementById("mobilenumber");
+      let dob1 = document.getElementById("dob");
+      let state1 = document.getElementById("state");  
+      let country1 = document.getElementById("countries"); 
+      let gender1  = document.getElementById("gender");
+      let image1  = document.getElementById("img_url");
+      let userName1  = document.getElementById("user_name");
+
+      fname1.value  = user_obj["fname"];
+      lname1.value  = user_obj["lname"];
+      mail1.value  = user_obj["email"];
+      phone1.value  = user_obj["phone_no"];
+      dob1.value  = user_obj["dob"];
+      state1.value  = user_obj["state"];
+      country1.value  = user_obj["country"];
+      gender1.value  = user_obj["gender"];  
+      image1.value = user_obj["image"]
+      userName1.value = user_obj["userName"];
+     }    
+      });
+
+    </script>
+  </body>
+</html>
+  

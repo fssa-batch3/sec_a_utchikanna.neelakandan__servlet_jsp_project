@@ -1,31 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="com.fssa.cinephile.model.*"%>
+
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link
-      rel="stylesheet"
-      type="text/css"
-      href="home.css"
+ <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/Cinephile.png"
     />
+    <title>Cinephile</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-	crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/after-login/assets/css/topBtn.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/after-login/assets/css/search.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/css/movie.css"
+    />
 
 <meta charset="ISO-8859-1">
-<title>Cinephile</title>
 
 </head>
 <body>
@@ -33,8 +41,34 @@
 
     
 
+    <div class="showSugg"></div>
+
+    <div class="filter">
+      <button class="view" id="less" onclick="view()">Show All</button>
+      <button class="view" id="Kollywood" onclick="showMoreMovie('Kollywood')">
+        Kollywood
+      </button>
+      <button class="view" id="Hollywood" onclick="showMoreMovie('Hollywood')">
+        Hollywood
+      </button>
+      <button class="view" id="WebSeries" onclick="showMoreMovie('WebSeries')">
+        Web Series
+      </button>
+      <button
+        class="view"
+        id="AnimeSeries"
+        onclick="showMoreMovie('AnimeSeries')"
+      >
+        Anime Series
+      </button>
+      <button class="view" id="SuperHero" onclick="showMoreMovie('SuperHero')">
+        Super Hero Movies
+      </button>
+    </div>
+    <button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
+    
 	<!-- Loop through the user list and generate user cards -->
-	<%
+<%
 	List<Movie> movieList = (List<Movie>) request.getAttribute("movieList");
 	HttpSession session1 = request.getSession();
 
@@ -44,7 +78,7 @@
 	
 	if (movieList != null && !movieList.isEmpty()) {
 		%>
-		<div id="movieList" class = "flex">
+		<div class="menu" id="cardhid">
 		<% 
 		for (Movie movie : movieList) {
 			
@@ -52,13 +86,15 @@
 
 
 	<div class="box">
-  <a href="" id="recently">
+  <a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
     <img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
     <i id="star" class="fa fa-star"></i>
-    <span class="rate"><%=movie.getMovieRating()%></span>
-    <span class="title1"><%=movie.getMovieTitle()%></span>
-      <input class="btn1" type = "submit" value ="Trailer">
-    
+    <h3 class="rate"><%=movie.getMovieRating()%>
+    <h2 class="title"><%=movie.getMovieTitle()%></h2>
+    </h3>
+    <a class="try" href="<%=movie.getMovieTrailer() %>">
+      <button class="btn" type = "submit" >Trailer</button>
+    </a>
   </a>
          <%
       if(loggedInEmail.equals("admin@gmail.com")){
@@ -82,5 +118,52 @@
 	<%
 	}
 	%>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+ <script>
+    function showMoreMovie(id) {
+      let buttons = document.getElementsByClassName("view");
+      for (const button of buttons) {
+        button.style.backgroundColor = "white";
+        button.style.color = "black";
+      }
+
+      let selectbutton = document.getElementById(id);
+      selectbutton.style.backgroundColor = "black";
+      selectbutton.style.color = "white";
+      if (id == "Kollywood") {
+        Kollywood();
+      }
+      if (id == "less1") {
+        less();
+      }
+      if (id == "view") {
+        view();
+      }
+      if (id == "Hollywood") {
+        Hollywood();
+      }
+      if (id == "WebSeries") {
+        WebSeries();
+      }
+      if (id == "AnimeSeries") {
+        AnimeSeries();
+      }
+      if (id == "SuperHero") {
+        SuperHero();
+      }
+    }
+  </script>
+  <script src="./assets/after-login/assets/js/star.js"></script>
+  <script src="./assets/after-login/assets/js/showMore.js"></script>
+  <script src="./assets/after-login/assets/js/search.js"></script>
+  <script src="./assets/after-login/assets/js/hollywood.js"></script>
+  <script src="./assets/after-login/assets/js/kollywood.js"></script>
+  <script src="./assets/after-login/assets/js/anime.js"></script>
+  <script src="./assets/after-login/assets/js/webSeries.js"></script>
+  <script src="./assets/after-login/assets/js/superHero.js"></script>
+  <script src="./assets/after-login/assets/js/recent.js"></script>
+  <script src="./assets/after-login/assets/js/upcoming.js"></script>
+  <script src="./assets/after-login/assets/js/home.js"></script>
+
 </html>

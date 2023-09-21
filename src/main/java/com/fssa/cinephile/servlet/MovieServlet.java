@@ -2,6 +2,7 @@ package com.fssa.cinephile.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.cinephile.model.Movie;
 import com.fssa.cinephile.services.MovieService;
+import com.fssa.cinephile.services.RatingService;
 import com.fssa.cinephile.services.exceptions.ServiceException;
 
 /**
@@ -33,25 +35,27 @@ public class MovieServlet extends HttpServlet {
             throws ServletException, IOException {
         
         // Retrieve movie information from the request parameters
-        String rating = request.getParameter("rating");
+  
         String title = request.getParameter("title");
         String imageUrl = request.getParameter("imageUrl");
+        String Trailer = request.getParameter("Trailer");
+        String Type = request.getParameter("Type");
         
-        // Parse rating to an integer
-        int rating1 = Integer.parseInt(rating);
+
+        
+        
         
         // Create a new Movie instance with the provided information
-        Movie movie = new Movie(rating1, title, imageUrl);
+        Movie movie = new Movie(title, imageUrl,Trailer,Type);
         
         try {
             // Create a MovieService instance to perform movie-related operations
             MovieService movieService = new MovieService();
-            
-            // Create the movie using the MovieService
             movieService.createMovie(movie);
+
+            response.sendRedirect("GetMovieIdServlet");
             
-            // Redirect to the ListAllMovieServlet to display the updated list of movies
-            response.sendRedirect("ListAllMovieServlet");
+     
         } catch (ServiceException e) {
             // Redirect back to the movie-form.jsp page with an error message in the query parameter
             response.sendRedirect("movie-form.jsp?error=" + e.getMessage());

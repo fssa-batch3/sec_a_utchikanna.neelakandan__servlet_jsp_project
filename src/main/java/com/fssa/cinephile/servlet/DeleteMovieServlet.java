@@ -52,9 +52,6 @@ public class DeleteMovieServlet extends HttpServlet {
             // Retrieve the updated list of movies
             movies = movieService.listAllMovies();
 
-            // Retrieve the session (if it exists)
-            HttpSession session = request.getSession(false);
-
             // Set the list of movies as an attribute in the request
             request.setAttribute("movieList", movies);
 

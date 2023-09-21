@@ -1,5 +1,13 @@
 C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\RegisterServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\ShowUserDetailsServlet.java
 C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\ListAllMovieServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\DeleteUserServlet.java
 C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\MovieServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\GetMovieIdServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\AddDetailsServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\DetailsMovieServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\UpdateMovieServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\DeleteMovieServlet.java
 C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\LoginServlet.java
 C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\LogoutServlet.java
+C:\Users\UtchikannaNeelakanda\eclipse-workspace\cinephile_web\src\main\java\com\fssa\cinephile\servlet\UpdateUserDetailsServlet.java

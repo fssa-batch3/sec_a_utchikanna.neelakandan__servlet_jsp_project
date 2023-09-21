@@ -50,7 +50,6 @@ public class LoginServlet extends HttpServlet {
 
         try {
             if (logInService.logInUser(user)) {
-                out.println("Login Successfully");
 
                 // Create a session and set the loggedInEmail attribute
                 HttpSession session = request.getSession();

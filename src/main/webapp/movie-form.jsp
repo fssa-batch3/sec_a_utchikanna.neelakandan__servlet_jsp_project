@@ -73,11 +73,7 @@
 
 </head>
 <body>
-
-
-
 <div class="card">
-
 		<div class="card-header">
 			<div class="text-header">Add Movie</div>
 		</div>
@@ -99,20 +95,30 @@
 
 				<div class="form-group">
 					<label for="username">Title:</label> <input required
-						class="form-control" value="Salaar" name="title"
+						class="form-control"  name="title"
 						id="username" type="text">
 				</div>
 				<div class="form-group">
-					<label for="email">Rating:</label> <input required
-						class="form-control" value="4" name="rating" id="email"
-						type="number">
-				</div>
-				<div class="form-group">
 					<label for="password">Image Url:</label> <input required
-						class="form-control" name="imageUrl" value="https://upload.wikimedia.org/wikipedia/en/a/a6/Salaar_Part_1_%E2%80%93_Ceasefire.jpg" id="password" type="text"
+						class="form-control" name="imageUrl"  id="password" type="text"
 					 >
 				</div>
-				<input type="submit" class="btn" value="submit">
+				<div class="form-group">
+					<label for="password">Trailer Link:</label> <input required
+						class="form-control" name="Trailer" id="password" type="text"
+					 >
+				</div>
+				<div class="form-group">
+				<select id="movietype" name="Type" required>
+        <option value="hollywood">Hollywood</option>
+        <option value="kollywood">Kollywood</option>
+        <option value="web Series">Web Series</option>
+        <option value="anime series">Anime Series</option>
+        <option value="superhero movies">Superhero Movie</option>
+        <option value="upcoming movie">Upcoming Movie</option>
+      </select>
+      </div>
+				<input type="submit" class="btn" value="Next">
 			</form>
 		</div>
 	</div>

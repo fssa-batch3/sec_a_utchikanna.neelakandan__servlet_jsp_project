@@ -35,7 +35,6 @@ public class UpdateMovieServlet extends HttpServlet {
         // Retrieve the movie ID parameter from the request
         String id = request.getParameter("Id");
         Integer movieId = Integer.parseInt(id);
-        System.out.println(movieId);
 
         // Create a MovieService instance to perform movie-related operations
         MovieService movieService = new MovieService();
@@ -44,7 +43,6 @@ public class UpdateMovieServlet extends HttpServlet {
         try {
             // Get the movie details by ID
             movie = movieService.getMovieById(movieId);
-            System.out.println(movie.getMovieId());
         } catch (ServiceException e) {
             // Handle any service-related exceptions by printing an error message
             PrintWriter out = response.getWriter();
@@ -72,16 +70,17 @@ public class UpdateMovieServlet extends HttpServlet {
         // Retrieve the movie ID parameter from the request
         String id = request.getParameter("Id");
         Integer movieId = Integer.parseInt(id);
-        System.out.println(movieId);
 
         // Retrieve updated movie information from the request parameters
-        String rating = request.getParameter("rating");
+    
         String title = request.getParameter("title");
         String imageUrl = request.getParameter("imageUrl");
-        int rating1 = Integer.parseInt(rating);
+        String Trailer = request.getParameter("Trailer");
+        String Type = request.getParameter("Type");
+      
 
         // Create a new Movie instance with the updated information
-        Movie editMovie = new Movie(title, movieId, rating1, imageUrl);
+        Movie editMovie = new Movie(title, movieId, imageUrl,Trailer,Type);
         List<Movie> movies = null;
         MovieService movieService = new MovieService();
 
