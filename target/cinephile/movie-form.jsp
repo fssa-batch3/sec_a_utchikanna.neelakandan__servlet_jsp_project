@@ -99,11 +99,6 @@
 						id="username" type="text">
 				</div>
 				<div class="form-group">
-					<label for="email">Rating:</label> <input required
-						class="form-control"  name="rating" id="email"
-						type="number">
-				</div>
-				<div class="form-group">
 					<label for="password">Image Url:</label> <input required
 						class="form-control" name="imageUrl"  id="password" type="text"
 					 >
@@ -114,7 +109,7 @@
 					 >
 				</div>
 				<div class="form-group">
-				<select id="movietype" name="Type" required="required">
+				<select id="movietype" name="Type" required>
         <option value="hollywood">Hollywood</option>
         <option value="kollywood">Kollywood</option>
         <option value="web Series">Web Series</option>

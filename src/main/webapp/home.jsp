@@ -44,24 +44,23 @@
     <div class="showSugg"></div>
 
     <div class="filter">
-      <button class="view" id="less" onclick="view()">Show All</button>
-      <button class="view" id="Kollywood" onclick="showMoreMovie('Kollywood')">
+      <button class="view" id="kollywood" onclick="filter('kollywood')">
         Kollywood
       </button>
-      <button class="view" id="Hollywood" onclick="showMoreMovie('Hollywood')">
+      <button class="view" id="hollywood" onclick="filter('hollywood')">
         Hollywood
       </button>
-      <button class="view" id="WebSeries" onclick="showMoreMovie('WebSeries')">
+      <button class="view" id="webSeries" onclick="filter('webSeries')">
         Web Series
       </button>
       <button
         class="view"
         id="AnimeSeries"
-        onclick="showMoreMovie('AnimeSeries')"
+        onclick="filter('animeSeries')"
       >
         Anime Series
       </button>
-      <button class="view" id="SuperHero" onclick="showMoreMovie('SuperHero')">
+      <button class="view" id="superHero" onclick="filter('superHero')">
         Super Hero Movies
       </button>
     </div>
@@ -69,10 +68,37 @@
     
 	<!-- Loop through the user list and generate user cards -->
 <%
-	List<Movie> movieList = (List<Movie>) request.getAttribute("movieList");
-	HttpSession session1 = request.getSession();
+HttpSession session1 = request.getSession();
+String loggedInEmail = (String) session1.getAttribute("loggedInEmail");
+    List<Movie> filterList = (List<Movie>) request.getAttribute("toFilterMovie");
 
-	String loggedInEmail = (String) session1.getAttribute("loggedInEmail");
+if (filterList != null && !filterList.isEmpty()) {
+	%>
+	<div class="menu" id="cardhid">
+	<% 
+	for (Movie movie : filterList) {
+		
+%>
+
+
+<div class="box">
+<a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
+<img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
+<h3 class="title"><%=movie.getMovieTitle()%></h3>
+<a class="try" href="<%=movie.getMovieTrailer()%>">
+  <button class="btn" type = "submit" >Trailer</button>
+</a>
+</a>
+</div>
+<%
+}
+%>
+  </div>
+  <%
+}else{
+    
+	List<Movie> movieList = (List<Movie>) request.getAttribute("movieList");
+
 	User user = new User();
 	user.setEmail(loggedInEmail);
 	
@@ -88,11 +114,8 @@
 	<div class="box">
   <a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
     <img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
-    <i id="star" class="fa fa-star"></i>
-    <h3 class="rate"><%=movie.getMovieRating()%>
-    <h2 class="title"><%=movie.getMovieTitle()%></h2>
-    </h3>
-    <a class="try" href="<%=movie.getMovieTrailer() %>">
+    <h3 class="title"><%=movie.getMovieTitle()%></h3>
+    <a class="try" href="<%=movie.getMovieTrailer()%>">
       <button class="btn" type = "submit" >Trailer</button>
     </a>
   </a>
@@ -117,53 +140,30 @@
 	<p>No movie available.</p>
 	<%
 	}
+}
 	%>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  <script>
-    function showMoreMovie(id) {
-      let buttons = document.getElementsByClassName("view");
-      for (const button of buttons) {
-        button.style.backgroundColor = "white";
-        button.style.color = "black";
-      }
+    function filter(type) {
+    	
+      axios.get("Filter?type="+type).then(response => {
+    	  let buttons = document.getElementsByClassName("view");
+          for (const button of buttons) {
+            button.style.backgroundColor = "white";
+            button.style.color = "black";
+          }
 
-      let selectbutton = document.getElementById(id);
-      selectbutton.style.backgroundColor = "black";
-      selectbutton.style.color = "white";
-      if (id == "Kollywood") {
-        Kollywood();
-      }
-      if (id == "less1") {
-        less();
-      }
-      if (id == "view") {
-        view();
-      }
-      if (id == "Hollywood") {
-        Hollywood();
-      }
-      if (id == "WebSeries") {
-        WebSeries();
-      }
-      if (id == "AnimeSeries") {
-        AnimeSeries();
-      }
-      if (id == "SuperHero") {
-        SuperHero();
-      }
+          let selectbutton = document.getElementById(type);
+          selectbutton.style.backgroundColor = "black";
+          selectbutton.style.color = "white";
+        })
+        .catch(error => {
+          console.error('Selected category is empty:', error);
+        });
+     
     }
   </script>
-  <script src="./assets/after-login/assets/js/star.js"></script>
-  <script src="./assets/after-login/assets/js/showMore.js"></script>
-  <script src="./assets/after-login/assets/js/search.js"></script>
-  <script src="./assets/after-login/assets/js/hollywood.js"></script>
-  <script src="./assets/after-login/assets/js/kollywood.js"></script>
-  <script src="./assets/after-login/assets/js/anime.js"></script>
-  <script src="./assets/after-login/assets/js/webSeries.js"></script>
-  <script src="./assets/after-login/assets/js/superHero.js"></script>
-  <script src="./assets/after-login/assets/js/recent.js"></script>
-  <script src="./assets/after-login/assets/js/upcoming.js"></script>
-  <script src="./assets/after-login/assets/js/home.js"></script>
 
 </html>

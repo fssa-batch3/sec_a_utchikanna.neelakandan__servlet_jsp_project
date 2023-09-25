@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.fssa.cinephile.services.*"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.fssa.cinephile.services.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,64 +73,68 @@
 </style>
 </head>
 <body>
-<div class="card">
-	<%
-	String movieId = (String) request.getAttribute("MovieId");
-		 System.out.println(movieId);
-				%>
+	<div class="card">
+		<%
+		String movieId = (String) request.getAttribute("MovieId");
+		System.out.println(movieId);
+		%>
 		<div class="card-header">
 			<div class="text-header">Add Movie</div>
 		</div>
 		<%
-		
-			String errorMessage = request.getParameter("error");
-			if (errorMessage != null) {
-			%>
+		String errorMessage = request.getParameter("error");
+		if (errorMessage != null) {
+		%>
 
-			<div class="alert alert-danger" role="alert">
+		<div class="alert alert-danger" role="alert">
 			<span style="color: red;"><%=errorMessage%></span>
-			</div>
-			<%
-			}
-			%>
-			
-			
-			
+		</div>
+		<%
+		}
+		%>
+
+
+
 		<div class="card-body">
 			<form action=AddDetailsServlet method="post">
-     
+
 				<div class="form-group">
-			
+
 					<label for="username">Movie Id:</label> <input required
-						class="form-control" value="<%=movieId %>" readonly name="movieId"
+						class="form-control" value="<%=movieId%>" readonly name="movieId"
 						id="username" type="text">
 				</div>
 				<div class="form-group">
-					<label for="email">Story:</label> <textarea required
-						class="form-control" rows="4" cols="50" name="story" id="email"
-						></textarea>
+					<label for="email">Story:</label>
+					<textarea required class="form-control"
+						value="When his wife, Aparna, gets raped during the partition of India, Saketh Ram joins a gang that aims to kill Mahatma Gandhi because he advocates peace with Muslims."
+						rows="4" cols="50" name="story" id="email"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="password">Release Date:</label> <input required
-						class="form-control" name="releaseDate" id="password" type="text"
-					 >
+						class="form-control" name="releaseDate" id="password" type="text">
 				</div>
 				<div class="form-group">
 					<label for="password">Award Name:</label> <input required
-						class="form-control" name="awardName"  id="password" type="text"
-					 >
+						class="form-control" name="awardName" id="password" type="text">
 				</div>
 				<div class="form-group">
 					<label for="password">Award Link:</label> <input required
-						class="form-control" name="awardWiki" id="password" type="text"
-					 >
+						class="form-control" name="awardWiki" id="password" type="text">
 				</div>
 				<div class="form-group">
 					<label for="password">Movie Link:</label> <input required
-						class="form-control" name="movieLink" id="password" type="text"
-					 >
+						class="form-control" name="movieLink" id="password" type="text">
 				</div>
-				
+				<div class="form-group">
+					<label for="password">Director Name:</label> <input required
+						class="form-control" name="directorName" id="password" type="text">
+				</div>
+				<div class="form-group">
+					<label for="password">Director Link:</label> <input required
+						class="form-control" name="directorWiki" id="password" type="text">
+				</div>
+
 				<input type="submit" class="btn" value="submit">
 			</form>
 		</div>

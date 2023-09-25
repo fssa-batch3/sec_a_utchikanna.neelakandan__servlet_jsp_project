@@ -1,9 +1,11 @@
 com\fssa\cinephile\servlet\UpdateUserDetailsServlet.class
 com\fssa\cinephile\servlet\ListAllMovieServlet.class
+com\fssa\cinephile\servlet\UpdateMovieDetailsServlet.class
 com\fssa\cinephile\servlet\MovieServlet.class
 com\fssa\cinephile\servlet\LoginServlet.class
 com\fssa\cinephile\servlet\DeleteUserServlet.class
 com\fssa\cinephile\servlet\DetailsMovieServlet.class
+com\fssa\cinephile\servlet\DeleteMovieDetailsServlet.class
 com\fssa\cinephile\servlet\GetMovieIdServlet.class
 com\fssa\cinephile\servlet\DeleteMovieServlet.class
 com\fssa\cinephile\servlet\RegisterServlet.class
@@ -11,3 +13,4 @@ com\fssa\cinephile\servlet\AddDetailsServlet.class
 com\fssa\cinephile\servlet\ShowUserDetailsServlet.class
 com\fssa\cinephile\servlet\UpdateMovieServlet.class
 com\fssa\cinephile\servlet\LogoutServlet.class
+com\fssa\cinephile\servlet\RatingServlet.class

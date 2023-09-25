@@ -130,6 +130,16 @@
 						class="form-control" name="movieLink" id="password" type="text"
 					 >
 				</div>
+				<div class="form-group">
+					<label for="password">Director Name:</label> <input required
+						class="form-control"  name="directorName" id="password" type="text"
+					 >
+				</div>
+				<div class="form-group">
+					<label for="password">Director Link:</label> <input required
+						class="form-control" name="directorWiki" id="password" type="text"
+					 >
+				</div>
 				
 				<input type="submit" class="btn" value="submit">
 			</form>

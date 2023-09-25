@@ -30,7 +30,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./assets/after-login/assets/css/movie.css"
+      href="./assets/css/movie.css"
     />
 
 <meta charset="ISO-8859-1">
@@ -86,13 +86,10 @@
 
 
 	<div class="box">
-  <a href="DetailsServlet?id=<%=movie.getMovieId()%>">
+  <a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
     <img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
-    <i id="star" class="fa fa-star"></i>
-    <h3 class="rate"><%=movie.getMovieRating()%>
-    <h2 class="title"><%=movie.getMovieTitle()%></h2>
-    </h3>
-    <a class="try" href="<%=movie.getMovieTrailer() %>">
+    <h3 class="title"><%=movie.getMovieTitle()%></h3>
+    <a class="try" href="<%=movie.getMovieTrailer()%>">
       <button class="btn" type = "submit" >Trailer</button>
     </a>
   </a>

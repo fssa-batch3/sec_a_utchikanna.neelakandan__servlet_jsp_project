@@ -34,11 +34,13 @@ public class ListAllMovieServlet extends HttpServlet {
             throws ServletException, IOException {
         // Create a MovieService instance to perform movie-related operations
         MovieService movieService = new MovieService();
-        List<Movie> result = null;
+        
 
         try {
             // Retrieve the list of all movies from the MovieService
-            result = movieService.listAllMovies();
+        	List<Movie> result = movieService.listAllMovies();
+            
+            
 
             // Set the list of movies as an attribute in the request
             request.setAttribute("movieList", result);

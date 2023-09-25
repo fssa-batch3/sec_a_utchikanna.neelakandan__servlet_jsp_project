@@ -62,7 +62,7 @@
 				<%
 				   }else{
 				%>
-					<li class="nav-list"><a  href="watchList.jsp">Watchlist</a>
+					<li class="nav-list"><a  href="ShowWatchList?email=<%=loggedInEmail %>">Watchlist</a>
 				</li>
 					<li class="nav-list"><a  href="about.jsp">About</a>
 				</li>

@@ -95,19 +95,15 @@
     
         <label for="username">Id:</label>
         
-        <input required="" class="form-control" value = "${toEditMovie.getMovieId()}" name="Id" id="username" type="text">
+        <input required class="form-control" readonly value = "${toEditMovie.getMovieId()}" name="Id" id="username" type="text">
       </div>
       <div class="form-group">
         <label for="username">Title:</label>
-        <input required="" class="form-control" value = "${toEditMovie.getMovieTitle()}" name="title" id="username" type="text">
-      </div>
-      <div class="form-group">
-        <label for="email">Rating:</label>
-        <input required="" class="form-control" value = "${toEditMovie.getMovieRating()}" name="rating" id="email" type="number">
+        <input required class="form-control" value = "${toEditMovie.getMovieTitle()}" name="title" id="username" type="text">
       </div>
       <div class="form-group">
         <label for="password">Image Url:</label>
-        <input required="" class="form-control" value = "${toEditMovie.getMovieImgUrl()}" name="imageUrl" id="password" type="text">
+        <input required class="form-control" value = "${toEditMovie.getMovieImgUrl()}" name="imageUrl" id="password" type="text">
       </div>
       	<div class="form-group">
 					<label for="password">Trailer Link:</label> <input required

@@ -26,6 +26,8 @@ public class AddDetailsServlet extends HttpServlet {
         String id = request.getParameter("movieId");
         String awardWiki = request.getParameter("awardWiki");
         String movieLink = request.getParameter("movieLink");
+        String directorName = request.getParameter("directorName");
+        String directorWiki = request.getParameter("directorWiki");
 
         int  movieId= Integer.parseInt(id);
 
@@ -36,6 +38,8 @@ public class AddDetailsServlet extends HttpServlet {
         movieDetails.setAwardName(awardName);
         movieDetails.setAwardWiki(awardWiki);
         movieDetails.setMovieLink(movieLink);
+        movieDetails.setDirectorName(directorName);
+        movieDetails.setDirectorWiki(directorWiki);
         // Create a new Movie instance to link with MovieDetails
         Movie movie = new Movie();
         movie.setMovieId(movieId); // Set the movie ID accordingly

@@ -16,17 +16,17 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./assets/after-login/assets/css/search.css"
+      href="./assets/css/search.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="./assets/after-login/assets/css/user.css"
+      href="./assets/css/user.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="./assets/after-login/assets/css/movie.css"
+      href="./assets/css/movie.css"
     />
 </head>
 <body>

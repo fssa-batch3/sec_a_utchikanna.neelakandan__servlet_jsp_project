@@ -22,6 +22,15 @@ h1:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+.avatar-2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 350px;
+}
+.adj {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .up {
   font-size: 40px;
   color: #333;
@@ -49,7 +58,7 @@ h1:hover {
   transition: 0.5s;
 }
 iframe {
-  margin-left: 40px;
+  margin-left: 100px;
   border-radius: 10px;
   border: none;
 }
@@ -223,18 +232,18 @@ p {
 }
 #star {
   margin-top: 10px;
-  margin-left: 13px;
-  color: #333;
-  padding: 10px;
-  font-size: 25px;
+    margin-left: 13px;
+    color: #333;
+    padding: 10px;
+    font-size: 25px;
 }
 .rate {
-  font-size: 23px;
-  margin-left: 50px;
-  padding-left: 5px;
-  position: relative;
-  bottom: 35px;
-  color: #333;
+    font-size: 23px;
+    margin-left: 50px;
+    padding-left: 5px;
+    position: relative;
+    bottom: 35px;
+    color: #333;
 }
 
 .box {
@@ -242,7 +251,7 @@ p {
   border-radius: 10px;
   background-color: white;
   max-width: 200px;
-  height: 430px;
+  height: 420px;
   margin-top: 50px;
   margin-bottom: 100px;
   cursor: pointer;
@@ -276,33 +285,31 @@ p {
   transition: 0.4s;
 }
 .title {
-  font-size: 25px;
-  margin-left: 25px;
-  position: relative;
-  bottom: 20px;
-  cursor: pointer;
+    font-size: 25px;
+    margin-left: 23px;
+     margin-top: 25px;
+    cursor: pointer;
 }
 .btn {
   padding: 10px;
-  width: 140px;
-  margin-left: 25px;
-  color: white;
-  font-size: 15px;
-  background-color: #333;
-  position: relative;
-  bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  transition: 0.5s;
+     width: 140px;
+    margin-left: 25px;
+    color: white;
+    font-size: 15px;
+    background-color: #333;
+     margin-top: 25px;
+    border: none;
+    border-radius: 5px;
+    transition: 0.5s;
 }
 .btn:hover {
   transform: scale(0.8);
   transition: 0.5s;
 }
 .try {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
+ text-decoration: none;
+    color: white;
+    font-size: 20px;
 }
 .link {
   text-decoration: none;
@@ -345,8 +352,8 @@ p {
 }
 
 #image-1 {
-  width: 200px;
-  height: 250px;
+    width: 200px;
+    height: 250px;
 }
 
 .gif {
@@ -700,8 +707,8 @@ input:invalid {
   padding: 10px;
   font-size: 18px;
   position: relative;
-  left: 220px;
-  bottom: -200px;
+  left: 210px;
+  bottom: 170px;
   opacity: 1;
   transition: 1.5s;
 }
@@ -810,7 +817,7 @@ input:invalid {
 }
 .firstBox {
   position: relative;
-  top: 200px;
+  top: 100px;
 }
 .secondBox {
   position: relative;

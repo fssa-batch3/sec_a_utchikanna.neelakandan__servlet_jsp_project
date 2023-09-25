@@ -4,5 +4,3 @@ let fav = [
     get_movie_id: "1234567",
   },
 ];
-
-

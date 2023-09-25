@@ -124,6 +124,16 @@
 						class="form-control" value="${toEditDetails.getMovieLink()}" name="movieLink" id="password" type="text"
 					 >
 				</div>
+				<div class="form-group">
+					<label for="password">Director Name:</label> <input required
+						class="form-control" value="${toEditDetails.getDirectorName()}" name="directorName" id="password" type="text"
+					 >
+				</div>
+				<div class="form-group">
+					<label for="password">Director Link:</label> <input required
+						class="form-control" value="${toEditDetails.getDirectorWiki()}" name="directorWiki" id="password" type="text"
+					 >
+				</div>
 				
 				<input type="submit" class="btn" value="submit">
 			</form>

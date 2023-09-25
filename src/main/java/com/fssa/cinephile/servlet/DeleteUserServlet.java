@@ -35,7 +35,7 @@ public class DeleteUserServlet extends HttpServlet {
         String id = request.getParameter("id");
         Integer userId = Integer.parseInt(id);
 
-       System.out.println(userId);
+
         UserService userService = new UserService();
 
 

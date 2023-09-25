@@ -61,6 +61,8 @@ public class UpdateMovieDetailsServlet extends HttpServlet {
 	        String awardName = request.getParameter("awardName");
 	        String awardWiki = request.getParameter("awardWiki");
 	        String movieLink = request.getParameter("movieLink");
+	        String directorName = request.getParameter("directorName");
+	        String directorWiki = request.getParameter("directorWiki");
 	        
 	        MovieDetails editMovieDetails = new MovieDetails();
 	        editMovieDetails.setStory(story);
@@ -69,6 +71,8 @@ public class UpdateMovieDetailsServlet extends HttpServlet {
 	        editMovieDetails.setAwardName(awardName);
 	        editMovieDetails.setAwardWiki(awardWiki);
 	        editMovieDetails.setMovieLink(movieLink);
+	        editMovieDetails.setDirectorName(directorName);
+	        editMovieDetails.setDirectorWiki(directorWiki);
 	        
 	        
 	        MovieDetailsService movieDetailsService = new MovieDetailsService();
