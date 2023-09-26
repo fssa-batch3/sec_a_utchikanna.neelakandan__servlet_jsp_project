@@ -112,9 +112,9 @@
 				<select id="movietype" name="Type" required>
         <option value="hollywood">Hollywood</option>
         <option value="kollywood">Kollywood</option>
-        <option value="web Series">Web Series</option>
-        <option value="anime series">Anime Series</option>
-        <option value="superhero movies">Superhero Movie</option>
+        <option value="webSeries">Web Series</option>
+        <option value="animeSeries">Anime Series</option>
+        <option value="superHero">Superhero Movie</option>
         <option value="upcoming movie">Upcoming Movie</option>
       </select>
       </div>

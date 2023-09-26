@@ -55,7 +55,7 @@
       </button>
       <button
         class="view"
-        id="AnimeSeries"
+        id="animeSeries"
         onclick="filter('animeSeries')"
       >
         Anime Series
@@ -68,8 +68,8 @@
     
 	<!-- Loop through the user list and generate user cards -->
 <%
-HttpSession session1 = request.getSession();
-String loggedInEmail = (String) session1.getAttribute("loggedInEmail");
+
+String loggedInEmail = (String) session.getAttribute("loggedInEmail");
     List<Movie> filterList = (List<Movie>) request.getAttribute("toFilterMovie");
 
 if (filterList != null && !filterList.isEmpty()) {

@@ -36,11 +36,10 @@ public class FilterServlet extends HttpServlet {
 		 try {
 			 
 			List<Movie> filter = movieService.movieFilter(type);
-			
+			System.out.println(filter.toString());
 	        request.setAttribute("toFilterMovie", filter);
-
-	        // Forward the request to the movie-edit-form.jsp page for editing
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+	        
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("ListAllMovieServlet");
 	        dispatcher.forward(request, response);
 			 
 		 } catch (ServiceException e) {

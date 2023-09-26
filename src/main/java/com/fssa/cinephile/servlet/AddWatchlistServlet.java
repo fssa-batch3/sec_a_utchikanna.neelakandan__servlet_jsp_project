@@ -40,7 +40,7 @@ public class AddWatchlistServlet extends HttpServlet {
         	User user = userService.getUserByEmail(email);
         	int userId = user.getUserId();
         	  Watchlist watchlist = new Watchlist(movieId,userId);
-        	  watchlistService.addwatchlist(watchlist);
+        	  watchlistService.addWatchlist(watchlist);
         	  response.sendRedirect("DetailsServlet");
         	  
 

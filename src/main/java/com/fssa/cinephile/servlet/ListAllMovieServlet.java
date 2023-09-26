@@ -33,6 +33,7 @@ public class ListAllMovieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Create a MovieService instance to perform movie-related operations
+    	
         MovieService movieService = new MovieService();
         
 

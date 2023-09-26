@@ -40,7 +40,7 @@ public class UpdateCommentServlet extends HttpServlet {
 			  User user = userService.getUserByEmail(email);
 			  int userId = user.getUserId();
 			  
-			 String comment = commentService.getRatingByMovieAndUser(movieId,userId);
+			 String comment = commentService.getCommentByMovieAndUser(movieId,userId);
 			 
 		        request.setAttribute("toEditComment", comment);
 
