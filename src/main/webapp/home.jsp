@@ -4,7 +4,7 @@
 
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
  <link
       rel="icon"
@@ -44,6 +44,9 @@
     <div class="showSugg"></div>
 
     <div class="filter">
+      <button class="view" onclick="showAll()">
+        All
+      </button>
       <button class="view" id="kollywood" onclick="filter('kollywood')">
         Kollywood
       </button>
@@ -65,38 +68,10 @@
       </button>
     </div>
     <button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
-    
-	<!-- Loop through the user list and generate user cards -->
-<%
 
-String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-    List<Movie> filterList = (List<Movie>) request.getAttribute("toFilterMovie");
-
-if (filterList != null && !filterList.isEmpty()) {
-	%>
-	<div class="menu" id="cardhid">
-	<% 
-	for (Movie movie : filterList) {
-		
-%>
-
-
-<div class="box">
-<a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
-<img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
-<h3 class="title"><%=movie.getMovieTitle()%></h3>
-<a class="try" href="<%=movie.getMovieTrailer()%>">
-  <button class="btn" type = "submit" >Trailer</button>
-</a>
-</a>
-</div>
-<%
-}
-%>
-  </div>
   <%
-}else{
-    
+
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
 	List<Movie> movieList = (List<Movie>) request.getAttribute("movieList");
 
 	User user = new User();
@@ -107,11 +82,11 @@ if (filterList != null && !filterList.isEmpty()) {
 		<div class="menu" id="cardhid">
 		<% 
 		for (Movie movie : movieList) {
-			
+		   
 	%>
 
 
-	<div class="box">
+	<div class="box" filter-tag="<%=movie.getMovieType() %>">
   <a href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>">
     <img id="image-1" src="<%=movie.getMovieImgUrl()%>" alt="image">
     <h3 class="title"><%=movie.getMovieTitle()%></h3>
@@ -140,30 +115,46 @@ if (filterList != null && !filterList.isEmpty()) {
 	<p>No movie available.</p>
 	<%
 	}
-}
 	%>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
- <script>
-    function filter(type) {
-    	
-      axios.get("Filter?type="+type).then(response => {
-    	  let buttons = document.getElementsByClassName("view");
-          for (const button of buttons) {
-            button.style.backgroundColor = "white";
-            button.style.color = "black";
-          }
+ <!-- ... Your HTML code ... -->
 
-          let selectbutton = document.getElementById(type);
-          selectbutton.style.backgroundColor = "black";
-          selectbutton.style.color = "white";
-        })
-        .catch(error => {
-          console.error('Selected category is empty:', error);
-        });
-     
+<script>
+  function filter(type) {
+
+    let movieElements = document.querySelectorAll('.box');
+
+    for (const movieElement of movieElements) {
+
+      let filterTag = movieElement.getAttribute('filter-tag');
+
+
+      if (filterTag.toLowerCase() === type.toLowerCase()) {
+        movieElement.style.display = 'block';
+      }
+      else {
+  
+        movieElement.style.display = 'none';
+      }
     }
-  </script>
+
+    let buttons = document.getElementsByClassName('view');
+    for (const button of buttons) {
+      button.style.backgroundColor = 'white';
+      button.style.color = 'black';
+    }
+    let selectbutton = document.getElementById(type);
+    selectbutton.style.backgroundColor = 'black';
+    selectbutton.style.color = 'white';
+  }
+  
+  function showAll(){
+	  window.location.reload();
+  }
+  
+</script>
+
 
 </html>

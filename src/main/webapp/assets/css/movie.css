@@ -152,7 +152,7 @@ ul {
   position: fixed;
   max-height: 100px;
   width: 100%;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   z-index: 10;
 }
 .nav-list {
@@ -347,7 +347,7 @@ p {
 }
 .filter {
    margin-top: 120px;
-  margin-left: 300px;
+  margin-left: 150px;
   display: flex;
   flex-direction: row;
 }
@@ -374,6 +374,48 @@ p {
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 100px;
+}
+
+.gif1 {
+    width: 90%;
+    position: relative;
+    right: 50px;
+    top: 50px;
+}
+.form {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 40px;
+    height: 280px;
+    position: relative;
+    left: 680px;
+    bottom: 550px;
+}
+.log {
+    font-size: 40px;
+    color: #333;
+    font-weight: 800;
+    position: relative;
+    left: 50px;
+    bottom: 600px;
+    border-bottom: 1px solid white;
+    width: 1px;
+    transition: all 1s ease;
+}
+input:invalid {
+    border-width: 2px;
+    border-color: red;
+}
+.inputBox input, .inputBox textarea {
+    width: 100%;
+    padding: 5px 0px;
+    font-size: 20px;
+    margin: 10px 0px;
+    border: none;
+    background-color: #efefef;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
 }
 .film {
   color: black;

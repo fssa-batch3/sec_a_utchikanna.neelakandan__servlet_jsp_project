@@ -112,10 +112,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<br /><br />
-    <br />
+
      <div class="showSugg"></div>
-    <br id="back" />
     <h2 class="up">Your Watchlist</h2>
     <% 
     String loggedInEmail = (String) session.getAttribute("loggedInEmail");

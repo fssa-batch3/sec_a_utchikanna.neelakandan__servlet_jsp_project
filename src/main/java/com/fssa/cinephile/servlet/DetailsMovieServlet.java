@@ -42,7 +42,7 @@ public class DetailsMovieServlet extends HttpServlet {
 
 	    int movieDetailsId = Integer.parseInt(request.getParameter("id"));
 	    String email = request.getParameter("email");
-	    System.out.println(movieDetailsId);
+	 ;
 	    MovieDetailsService movieDetailsService = new MovieDetailsService();
 	    RatingService ratingService = new RatingService();
 	    UserService userService = new UserService();

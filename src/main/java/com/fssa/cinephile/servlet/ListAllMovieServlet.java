@@ -41,8 +41,6 @@ public class ListAllMovieServlet extends HttpServlet {
             // Retrieve the list of all movies from the MovieService
         	List<Movie> result = movieService.listAllMovies();
             
-            
-
             // Set the list of movies as an attribute in the request
             request.setAttribute("movieList", result);
 

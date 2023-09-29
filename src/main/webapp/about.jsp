@@ -70,7 +70,7 @@
     <div style="width: 50%;padding: 40px;">
       <img
         class="gif1"
-        src="./assets/after-login/assets/images/man-giving-online-feedback.gif"
+        src="./assets/images/man-giving-online-feedback.gif"
         alt="image"
       />
       <h2 class="log">Send Feedback</h2>
@@ -95,7 +95,5 @@
    
     <jsp:include page="footer.jsp"></jsp:include>
 </body>
- <script src="./assete/after-login/assets/js/feedback.js"></script>
-    <script src="./assete/after-login/assets/js/star.js"></script>
-    <script src="./assete/after-login/assets/js/search.js"></script>
+
 </html>

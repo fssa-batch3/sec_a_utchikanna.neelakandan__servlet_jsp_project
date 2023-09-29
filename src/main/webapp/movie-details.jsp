@@ -292,18 +292,17 @@ function updateComment(id) {
       return; 
     }
 
-    const updatedComment = {
-      description: updatedDescription
-    };
 
-    axios.put("comment?commentId="+id, updatedComment)
+    axios.put("comment?commentId="+id+"&description="+updatedDescription)
       .then(response => {
         alert('Comment updated successfully');
+        window.location.reload();
         const commentElement = document.getElementById("comment-"+id);
         if (commentElement) {
           const descriptionElement = commentElement.querySelector('.comment-description');
           if (descriptionElement) {
             descriptionElement.innerText = updatedDescription;
+            
           }
         }
       })

@@ -63,13 +63,14 @@ public class CommentServlet extends HttpServlet {
 			throws ServletException, IOException {
 		int commentId = Integer.parseInt(request.getParameter("commentId"));
 		String updatedDescription = request.getParameter("description");
-		System.out.println(updatedDescription);
-		System.out.println(commentId);
+	
+		
 		Comments comment = new Comments();
         comment.setComment(updatedDescription);
 		comment.setCommentId(commentId);
 		try {
 			commentsService.updateComment(comment);
+			
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
