@@ -41,8 +41,6 @@
 
     
 
-    <div class="showSugg"></div>
-
     <div class="filter">
       <button class="view" onclick="showAll()">
         All
@@ -99,12 +97,11 @@
     	  %>
     	  <a class="edit" href="UpdateMovieServlet?Id=<%=movie.getMovieId()%>">Edit</a>
     	  <a class="delete" href="DeleteMovieServlet?Id=<%=movie.getMovieId()%>">Delete</a>
-    	  <%
+      <%
        }
       %>
 </div>
 	 
-
 	<%
 	}
 	%>
@@ -155,6 +152,6 @@
   }
   
 </script>
-
+<script src="./assets/js/home.js" type="text/javascript"></script>
 
 </html>

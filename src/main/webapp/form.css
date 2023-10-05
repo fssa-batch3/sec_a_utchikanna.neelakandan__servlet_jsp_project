@@ -108,3 +108,18 @@ input:invalid {
 .login-with {
   display: flex;
 }
+.btn6 {
+    width: 30%;
+    background: #666;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    position: relative;
+    left: 210px;
+    bottom: 128px;
+    opacity: 1;
+    transition: 1.5s;
+}

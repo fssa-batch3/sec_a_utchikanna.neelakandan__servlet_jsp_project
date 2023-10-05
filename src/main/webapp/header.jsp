@@ -92,10 +92,34 @@
         </g>
       </svg>
 	</div>
+		<%
+	List<Movie> movieList = (List<Movie>) request.getAttribute("searchMovieList");
+	System.out.println(movieList);
+	if (movieList != null && !movieList.isEmpty()) {
+		%>
+		<div class="showSugg">
+		<% 
+		for (Movie movie : movieList) {  
+			
+	    %>
+		<div class="suggesDiv">
+			<a class="suggesAng"
+				href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>"><img
+				class="suggesImg"
+				src="<%=movie.getMovieImgUrl()%>"
+				alt="image">
+			<h2 class="suggesTitle"><%=movie.getMovieTitle()%></h2></a>
+		</div>
+		<%
+		}
+		%>
+	</div>
+	    <%
+		}
+		%>
 	<br />
 	<br />
 	<br />
-
 </body>
 <script>
 const searchbar = document.getElementById("searchbar");
@@ -110,13 +134,7 @@ searchbar.addEventListener("focus", function () {
         });
 	
 });
-const searchbar = document.getElementById("searchbar");
-searchbar.addEventListener("focus", function () {
-  
-	
-  let activeCard = document.querySelector(".showSugg");
-  activeCard.style.display = "block";
-});
+
 try {
 	  const searchbar = document.getElementById("searchbar");
 	  const cards = document.getElementsByClassName("suggesDiv");

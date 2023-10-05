@@ -32,23 +32,19 @@ public class ListAllMovieServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Create a MovieService instance to perform movie-related operations
     	
         MovieService movieService = new MovieService();
         
 
         try {
-            // Retrieve the list of all movies from the MovieService
+         
         	List<Movie> result = movieService.listAllMovies();
             
-            // Set the list of movies as an attribute in the request
             request.setAttribute("movieList", result);
 
-            // Forward the request to the home.jsp page for display
             RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);
         } catch (ServiceException e) {
-            // Handle any service-related exceptions by printing a stack trace
             e.printStackTrace();
         }
     }

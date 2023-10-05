@@ -64,5 +64,9 @@
 			Already registered User? <a class="log-user" href="login.jsp">Log
 				In</a>
 		</h2>
+		<a href="ListAllMovieServlet">
+        <button class="btn6">Back</button>
+      </a> 	
+		</div>
 </body>
 </html>

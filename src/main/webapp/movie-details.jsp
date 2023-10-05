@@ -160,9 +160,9 @@
 		</div>
 		<form action=comment method="post" id="comment-form">
 			<div class="inputContainer">
-				<input placeholder="Type your comment" id="comment-input"
+				<input placeholder="Write your Review" id="comment-input"
 					class="input-field" type="text" name="comment" autocomplete="off"> <label
-					for="input-field" class="input-label">Type your comment</label> <span
+					for="input-field" class="input-label">Write your Review</label> <span
 					class="input-highlight"></span>
 					<input name="movieId" hidden value="<%=movieDetails.getMovie().getMovieId()%>">
 					<input name="email" hidden value="<%=loggedInEmail%>">
@@ -184,8 +184,6 @@
 			<span class="times"></span> <img class="commenter_img"
 				src="https://img.myloview.com/posters/user-icon-vector-male-person-profile-avatar-symbol-in-circle-flat-color-glyph-pictogram-illustration-700-140985839.jpg" alt="image" />
 			<h2 class="commenter_name"><%=comment.getUser().getFirstName()%></h2>
-			<span></span> <i id="icon" class="fa fa-thumbs-o-up"
-				onclick="likeBtn(this)"></i> 
 				<%
 				String email = comment.getUser().getEmail();
 				System.out.println(email);

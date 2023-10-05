@@ -365,7 +365,7 @@ p {
   bottom: 100px;
 }
 .about {
-  font-size: 22px;
+  font-size: 30px;
   color: #666;
   max-height: 300px;
 }
@@ -618,7 +618,7 @@ a {
 }
 
 .log {
-  font-size: 30px;
+  font-size: 45px;
   color: black;
   font-weight: 800;
   position: relative;

@@ -47,7 +47,6 @@
 	String loggedInEmail = (String) session1.getAttribute("loggedInEmail");
 	if(user != null){
    %>
-    <div class="showSugg"></div>
     <div class="userSet">
       <div class="user-profile">
         <img id="user_image" src="https://img.myloview.com/posters/user-icon-vector-male-person-profile-avatar-symbol-in-circle-flat-color-glyph-pictogram-illustration-700-140985839.jpg" alt="User Profile Picture" />
