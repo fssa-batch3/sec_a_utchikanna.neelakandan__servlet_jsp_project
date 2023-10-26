@@ -28,7 +28,7 @@
 			%>
 			<div class="inputBox">
 				<input id="first_name" type="text" autocomplete="off" required
-					 name="firstname" autofocus />
+					 name="firstname" value="vijay" autofocus />
 					
 					 <span>Enter
 					Your First Name
@@ -36,21 +36,21 @@
 			
 			</div>
 			<div class="inputBox">
-				<input id="last_name" type="text" autocomplete="off" required
+				<input id="last_name" type="text" value="kumar" autocomplete="off" required
 					 name="lastname" /> <span>Enter
 					Your Last Name</span>
 			</div>
 			<div class="inputBox">
-				<input id="first_email" type="email" autocomplete="off" required
+				<input id="first_email" value="vijay@gmail.com" type="email" autocomplete="off" required
 					 name="email" /> <span>Email</span>
 			</div>
 			<div class="inputBox">
-				<input id="phone_no" type="tel" autocomplete="off"
+				<input id="phone_no" value="7548824945" type="tel" autocomplete="off"
 					 required name="phoneNo" /> <span>Phone
 					Number</span>
 			</div>
 			<div class="inputBox">
-				<input id="first_password" type="password"
+				<input id="first_password" type="password" value="Vijay@3108"
 					title="Password must contain an upper case letter, symbol, and number"
 					required  name="password" /> <span>Enter
 					Your Password</span>

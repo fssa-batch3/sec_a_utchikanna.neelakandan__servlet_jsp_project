@@ -61,22 +61,7 @@
   border: none;
 }
 
-.showSugg {
-  background-color: #fff;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  margin-left: 480px;
-  width: 380px;
-  border-radius: 20px;
-  min-height: 100px;
-  max-height: 370px;
-  display: block;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  position: fixed;
-  z-index: 10;
-}
+
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
@@ -99,28 +84,55 @@
   position: relative;
   top: 20px;
 }
+
 .suggesDiv {
-  margin-top: -5px;
-  cursor: pointer;
+    cursor: pointer;
+    display: flex;
+    padding-top:15px;
+	padding-bottom:15px;
+}
+.suggesDiv:hover{
+	background-color:#c0c0c0;
+	border-radius:15px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 .suggesImg {
   margin-left: 10px;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 .suggesTitle {
-  position: relative;
-  left: 110px;
-  bottom: 90px;
   margin-top: 30px;
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 24px;
+  margin-left:10px;
 }
-.backGround {
+
+.showSugg.active {
+  background-color: #fff;
+  padding-bottom: 20px;
+  margin-top: 95px;
+  margin-bottom: 20px;
+  margin-left: 480px;
+  width: 400px;
+  border-radius: 20px;
+  min-height: auto;
+  max-height: 400px;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 9;
+  z-index: 10;
+}
+.showSugg {
+    display: none
+}
+
+.backGround.active {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    top: 90px;
+    background-color: #00000099;
 }

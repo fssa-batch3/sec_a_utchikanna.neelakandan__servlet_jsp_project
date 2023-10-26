@@ -78,7 +78,7 @@
 
 	<div class="input-container">
 		<input placeholder="Search Movie..." class="input" name="text"
-			type="text" id="searchbar" autocomplete="off" />
+			type="search" id="searchbar" autocomplete="off" />
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 			class="icon">
         <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -92,48 +92,84 @@
         </g>
       </svg>
 	</div>
-		<%
-	List<Movie> movieList = (List<Movie>) request.getAttribute("searchMovieList");
-	System.out.println(movieList);
-	if (movieList != null && !movieList.isEmpty()) {
-		%>
-		<div class="showSugg">
-		<% 
-		for (Movie movie : movieList) {  
-			
-	    %>
-		<div class="suggesDiv">
-			<a class="suggesAng"
-				href="DetailsServlet?id=<%=movie.getMovieId()%>&email=<%=loggedInEmail %>"><img
-				class="suggesImg"
-				src="<%=movie.getMovieImgUrl()%>"
-				alt="image">
-			<h2 class="suggesTitle"><%=movie.getMovieTitle()%></h2></a>
-		</div>
-		<%
-		}
-		%>
-	</div>
-	    <%
-		}
-		%>
+        <div class="backGround"></div>
+		<div class="showSugg"></div>
+		
 	<br />
 	<br />
 	<br />
 </body>
 <script>
 const searchbar = document.getElementById("searchbar");
+const focusOut = document.querySelector(".backGround");
+const searchList = document.querySelector(".showSugg");
 searchbar.addEventListener("focus", function () {
+
+	searchList.classList.add("active");
+	focusOut.classList.add("active");
 	
 	axios.get("SearchServlet")
 	  .then(function (response) {
 	    console.log(response.data);
+	    showSearchData(response.data);
 	  })
 	  .catch(error => {
           console.error('Error while searching:', error);
         });
 	
 });
+
+focusOut.addEventListener("click", function () {
+	searchList.classList.remove("active");
+	focusOut.classList.remove("active");
+});
+
+function showSearchData(movieList){
+	
+const searchResult =  document.querySelector(".showSugg");
+
+searchResult.innerHTML = '';
+
+if(!movieList || movieList.length === 0 ){
+	searchResult.innerHTML = "No result Found";
+	return;
+}
+ 
+	for (let i = 0; i < movieList.length; i++) {
+	  const movie = movieList[i];
+	  
+	  const div = document.createElement("div");
+	  div.classList.add("suggesDiv");
+	  
+	  const a = document.createElement("a");
+	  a.classList.add("suggesAng");
+	  const id = movie.movieId;
+	  a.href = "DetailsServlet?id="+id+"&email=${loggedInEmail}";
+
+	
+	  const img = document.createElement("img");
+	  img.classList.add("suggesImg");
+	  img.src = movie.movieImgUrl;
+	  img.alt = "image";
+
+	  const h2 = document.createElement("h2");
+	  h2.classList.add("suggesTitle");
+
+
+	  h2.textContent = movie.movieTitle;
+
+
+	  div.appendChild(img);
+	  div.appendChild(h2);
+
+	  a.appendChild(div);
+
+	
+	  searchResult.append(a);
+	}
+
+}
+
 
 try {
 	  const searchbar = document.getElementById("searchbar");
@@ -144,7 +180,8 @@ try {
 	      if (
 	        element.innerHTML.toLowerCase().includes(searchbar.value.toLowerCase())
 	      ) {
-	        element.style.display = "block";
+	        element.style.display = "flex";
+	        
 	      } else {
 	        element.style.display = "none";
 	      }

@@ -50,16 +50,6 @@
         <a class="last" href="./after-login/about.html">About</a>
         <a class="last" href="LoginServlet">Log In</a>
       </ol>
-      <ol class="policy">
-        <a class="last-one" href="#">Help</a>
-        <a class="last-one" href="#">Advertising</a>
-        <a class="last-one" href="#">Press Room</a>
-        <a class="last-one" href="#">Conditions of Use</a>
-      </ol>
-      <div class="privacy">
-        <a class="last-one" href="#">Privacy Policy</a>
-        <a class="last-one" href="#">Interest-Based Ads</a>
-      </div>
     </div>
 </body>
 </html>

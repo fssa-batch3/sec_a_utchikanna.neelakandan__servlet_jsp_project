@@ -32,7 +32,7 @@
 			}
 			%>
 			<div class="inputBox">
-				<input id="email" type="email" name="email" autocomplete="off"
+				<input id="email" type="email"  name="email" autocomplete="off"
 					required autofocus /> <span>Enter your Email</span>
 			</div>
 			<div class="inputBox">
