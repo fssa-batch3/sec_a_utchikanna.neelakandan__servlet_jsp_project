@@ -3,7 +3,7 @@
 <%@ page import="com.fssa.cinephile.model.*"%>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
 <link rel="icon" type="image/png" sizes="32x32"
@@ -186,7 +186,6 @@
 			<h2 class="commenter_name"><%=comment.getUser().getFirstName()%></h2>
 				<%
 				String email = comment.getUser().getEmail();
-				System.out.println(email);
 				if (loggedInEmail.equals(email)) {
 				%>
 				<a id="comment_edit" class="comments_edit"
@@ -268,11 +267,11 @@ setRatingValue(${rating});
 
 function deleteComment(id) {
     console.log(id);
-    const confirmed = confirm('Are you sure you want to delete this comment?');
+    const confirmed = confirm('Are you sure you want to delete this Review?');
     if (confirmed) {
       axios.delete("comment?commentId="+ id)
         .then(response => {
-          alert('Comment deleted successfully');
+          alert('Review deleted successfully');
           const commentElement = document.getElementById("comment-"+id);
           if (commentElement) {
             commentElement.parentElement.removeChild(commentElement);
@@ -285,7 +284,7 @@ function deleteComment(id) {
   }
 
 function updateComment(id) {
-    const updatedDescription = prompt('Enter the new comment:');
+    const updatedDescription = prompt('Enter the new Review:');
     if (updatedDescription === null) {
       return; 
     }
@@ -293,7 +292,7 @@ function updateComment(id) {
 
     axios.put("comment?commentId="+id+"&description="+updatedDescription)
       .then(response => {
-        alert('Comment updated successfully');
+        alert('Review updated successfully');
         window.location.reload();
         const commentElement = document.getElementById("comment-"+id);
         if (commentElement) {
